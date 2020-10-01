@@ -1,5 +1,5 @@
 import React from "react";
-import { Feed, Icon } from "semantic-ui-react";
+import { Feed } from "semantic-ui-react";
 import MessageService from "../../services/MessageService";
 import Message from "./Message";
 
@@ -7,8 +7,8 @@ class GetMessages extends React.Component {
   state = { messages: [] };
 
   rerenderMessages = () => {
-      this.forceUpdate()
-  }
+    this.forceUpdate();
+  };
 
   componentDidMount() {
     MessageService.obtainMessages().then((response) => {
