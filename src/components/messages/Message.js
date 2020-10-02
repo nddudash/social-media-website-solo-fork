@@ -13,6 +13,7 @@ import {
   FeedSummary,
   Icon,
 } from "semantic-ui-react";
+import "./GetMessages.css";
 // import UserServices from "../../services/UserDataService";
 
 class Message extends React.Component {

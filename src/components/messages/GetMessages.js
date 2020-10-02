@@ -1,7 +1,8 @@
 import React from "react";
-import { Feed } from "semantic-ui-react";
+import { Feed, Loader } from "semantic-ui-react";
 import MessageService from "../../services/MessageService";
 import DataService from "../../services/DataService";
+import "./GetMessages.css";
 import Message from "./Message";
 
 class GetMessages extends React.Component {
