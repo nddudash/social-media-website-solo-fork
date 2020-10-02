@@ -12,6 +12,7 @@ import {
   FeedLike,
   FeedMeta,
   FeedSummary,
+  Placeholder,
 } from "semantic-ui-react";
 import "./GetMessages.css";
 
@@ -78,6 +79,36 @@ class Message extends React.Component {
         <Feed.Event>
           <Feed.Label>
             <img src={profilePlaceholder} alt="Post Avatar" />
+          </Feed.Label>
+          <FeedContent>
+            <FeedSummary>
+              <Link to={`/profile/${this.props.username}`}>
+                {this.props.username}
+              </Link>
+              <FeedDate>
+                at {new Date(this.props.createdAt).toDateString()}
+              </FeedDate>
+            </FeedSummary>
+            <FeedExtra text>{this.props.text}</FeedExtra>
+            <FeedMeta>
+              <FeedLike>
+                <LikeButton
+                  className="likeButton"
+                  likesArray={this.props.likes}
+                  messageId={this.props.id}
+                />
+              </FeedLike>
+            </FeedMeta>
+          </FeedContent>
+        </Feed.Event>
+      );
+    }
+
+    if (this.state.postAvatar === null) {
+      return (
+        <Feed.Event>
+          <Feed.Label>
+            <Placeholder.Image/>
           </Feed.Label>
           <FeedContent>
             <FeedSummary>

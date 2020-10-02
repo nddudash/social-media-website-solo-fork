@@ -40,7 +40,6 @@ class UserMessagesDisplay extends React.Component {
                 {...messageObject}
                 loggedInUser={this.loggedInUser}
                 username={this.state.usernameFromURL}
-                getPostAvatar = {this.getPostAvatar}
               />
             ))}
           </Feed>
