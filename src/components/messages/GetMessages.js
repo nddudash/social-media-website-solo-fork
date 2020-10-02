@@ -1,13 +1,14 @@
 import React from "react";
 import { Feed } from "semantic-ui-react";
 import MessageService from "../../services/MessageService";
+import DataService from "../../services/DataService";
 import Message from "./Message";
 
 class GetMessages extends React.Component {
   constructor(props) {
     super(props);
     this.state = { messages: [] };
-    this.loginData = JSON.parse(localStorage.getItem("login"));
+    this.loggedInUser = new DataService().getUsername();
   }
 
   componentDidMount() {
@@ -22,6 +23,7 @@ class GetMessages extends React.Component {
       return (
         <div className="messageList">
           <h1>Message List</h1>
+          <Loader size="massive" active />
           <h3>Loading...</h3>
         </div>
       );
@@ -35,7 +37,7 @@ class GetMessages extends React.Component {
               <Message
                 key={messageObject.id}
                 {...messageObject}
-                loginData={this.loginData}
+                loggedInUser={this.loggedInUser}
               />
             ))}
           </Feed>
