@@ -30,7 +30,7 @@ class GetMessages extends React.Component {
       <div className="messageList">
         <h1>Message List</h1>
         <ul>
-          <Feed>
+          <Feed className="messageArea">
             {this.state.messages.map((messageObject) => (
               <Message
                 key={messageObject.id}
