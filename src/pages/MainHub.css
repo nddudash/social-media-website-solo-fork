@@ -2,7 +2,11 @@
 }
 
 .postMessageForm {
+  display: flex;
+  flex-direction: row;
 }
 
 .messageArea {
+  display: flex;
+  flex-direction: column;
 }

@@ -14,8 +14,12 @@ class MainHub extends React.Component {
     return (
       <div className="mainHub">
         <Menu isAuthenticated={this.props.isAuthenticated} />
-        <PostMessageForm className="postMessageForm" />
-        <GetMessages className="messageArea" />
+        <div className="postMessageForm">
+          <PostMessageForm />
+        </div>
+        <div className="messageArea">
+          <GetMessages />
+        </div>
       </div>
     );
   }
