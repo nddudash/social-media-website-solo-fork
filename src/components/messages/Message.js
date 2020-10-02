@@ -11,9 +11,9 @@ import {
   FeedLike,
   FeedMeta,
   FeedSummary,
-  FeedUser,
   Icon,
 } from "semantic-ui-react";
+import "./GetMessages.css";
 // import UserServices from "../../services/UserDataService";
 
 class Message extends React.Component {
@@ -39,7 +39,10 @@ class Message extends React.Component {
                   messageId={this.props.id}
                 />
               </FeedLike>
-              <DeleteUserMessages messageId={this.props.id} />
+              <DeleteUserMessages
+                messageId={this.props.id}
+                className="deleteButton"
+              />
             </FeedMeta>
           </FeedContent>
         </Feed.Event>

@@ -1,0 +1,17 @@
+.messageFeed {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 10px;
+  margin-left: 15%;
+  margin-right: 15%;
+  padding: 0%;
+}
+
+.postMessageForm {
+  max-width: 1200px;
+}
+
+.messageArea {
+  margin-top: 20px;
+}
