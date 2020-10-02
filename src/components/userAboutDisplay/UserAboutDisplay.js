@@ -8,7 +8,6 @@ class UserAboutDisplay extends React.Component {
     this.state = {
       userAboutInfo: this.props.userAboutInfo,
     };
-    console.log(this.state.userAboutInfo);
   }
 
   //Thanks to ob1 and HoldOffHunger from https://stackoverflow.com/questions/37009328/re-render-react-component-when-prop-changes

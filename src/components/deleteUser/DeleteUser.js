@@ -11,7 +11,6 @@ class DeleteUser extends React.Component {
 
   handleDelete = (e) => {
     this.client.deleteUser().then((result) => {
-      console.log(result);
       localStorage.clear();
       window.location.reload();
     });

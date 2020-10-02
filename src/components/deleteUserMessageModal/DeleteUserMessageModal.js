@@ -1,5 +1,4 @@
 import React from "react";
-import { propTypes } from "react-spinkit";
 import { Button, Modal } from "semantic-ui-react";
 
 function exampleReducer(state, action) {

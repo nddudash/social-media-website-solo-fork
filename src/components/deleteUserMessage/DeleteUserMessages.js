@@ -1,5 +1,4 @@
 import React from "react";
-import { Feed, Icon, Button } from "semantic-ui-react";
 import DeleteUserMessagesService from "../../services/DeleteUserMessagesService";
 import DeleteUserMessageModal from "../deleteUserMessageModal/DeleteUserMessageModal";
 
