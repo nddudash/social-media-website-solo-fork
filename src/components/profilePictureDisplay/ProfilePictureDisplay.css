@@ -8,4 +8,10 @@
     height: 100%;
 }
 
+.ProfilePictureDisplay .placeholder{
+    object-fit: contain;
+    width: 300px;
+    height: 300px;
+}
+
 

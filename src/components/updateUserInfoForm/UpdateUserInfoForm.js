@@ -2,8 +2,6 @@ import React from "react";
 import {
   Form,
   Button,
-  Header,
-  Input,
   Label,
   TextArea,
   Message,
@@ -41,7 +39,6 @@ class UpdateUserInfoForm extends React.Component {
 
     this.UpdateUserInfoService.updateInfo(this.state.updateUserInfoObject)
       .then((result) => {
-        console.log(result);
         this.setState({
           responseCode: result.data.statusCode,
         });

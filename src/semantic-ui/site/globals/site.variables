@@ -1,6 +1,9 @@
 /*******************************
      User Global Variables
 *******************************/
+@pageBackground: #D8D8D8;
+@primaryColor: #002f4e;
+
 .ui.feed .event .content {
     padding: 10px 10px 10px 10px;
     margin-top: 5px;

@@ -19,7 +19,6 @@ class UploadProfilePicture extends React.Component {
   };
 
   handleChange = (event) => {
-    console.log(event.target.files[0]);
     this.setState({ [event.target.name]: event.target.files[0] });
   };
 
@@ -29,16 +28,17 @@ class UploadProfilePicture extends React.Component {
         this.state.uploadPicture
       )
         .then((result) => {
-          console.log(result);
-          if (result.data.statusCode)
+          if (result.data.statusCode) {
             this.setState({ uploadResponseCode: result.data.statusCode });
+          }
+          this.props.updateImage(this.state.uploadPicture)
         })
         .catch((error) => {
-          console.log(error);
-          if (error.response.data.statusCode)
+          if (error.response.data.statusCode) {
             this.setState({
               uploadResponseCode: error.response.data.statusCode,
             });
+          }
         });
     }
   };

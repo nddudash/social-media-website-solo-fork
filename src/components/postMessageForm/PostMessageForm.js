@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Button, TextArea, Message } from "semantic-ui-react";
+import { Form, Button, Message } from "semantic-ui-react";
 import PostMessageService from "../../services/PostMessagesService";
 import "./PostMessageForm.css";
 
@@ -34,12 +34,12 @@ class PostMessageForm extends React.Component {
     event.preventDefault();
     this.PostMessageService.postMessage(this.state.messageData)
       .then((result) => {
-        console.log(result);
         if (result.data.statusCode === 200) {
           this.setState({
             responseCode: result.data.statusCode,
           });
         }
+        window.location.reload();
       })
       .catch((error) => {
         console.log(error);

@@ -3,7 +3,7 @@ import DataService from "../../services/DataService";
 import PostLikeService from "../../services/PostLikeService";
 import DeleteLikeService from "../../services/DeleteLikeService";
 import { Button, Icon, Label } from "semantic-ui-react";
-import "./LikeButton.css"
+import "./LikeButton.css";
 
 class LikeButton extends React.Component {
   constructor(props) {
@@ -35,7 +35,6 @@ class LikeButton extends React.Component {
     if (this.state.isLiked) {
       DeleteLikeService.deleteLike(this.state.deleteRequestData.likeId)
         .then((result) => {
-          console.log(result);
           let likesArrayCopy = [...this.state.likesArray];
           likesArrayCopy.forEach((likeObject) => {
             if (this.loggedInUser === likeObject.username) {
@@ -44,19 +43,23 @@ class LikeButton extends React.Component {
           });
           this.setState({ likesArray: likesArrayCopy });
         })
-        .catch((error) => console.log(error));
+        .catch((error) => {
+          console.log(error);
+        });
       this.setState({ isLiked: false });
     } else {
       PostLikeService.postLike(this.state.postRequestData)
         .then((result) => {
-          console.log(result);
           let likesArrayCopy = [...this.state.likesArray];
           let likeObject = result.data.like;
           likesArrayCopy.push(likeObject);
           this.setState({ likesArray: likesArrayCopy });
           this.setState({ deleteRequestData: { likeId: likeObject.id } });
         })
-        .catch((error) => console.log(error));
+        .catch((error) => {
+          console.log(error);
+        });
+
       this.setState({ isLiked: true });
     }
   };

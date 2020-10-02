@@ -25,7 +25,6 @@ class RegistrationForm extends React.Component {
     this.client
       .registerUser(this.state.formData)
       .then((result) => {
-        console.log(result);
         this.setState({
           responseCode: 200,
           formData: { username: "", displayName: "", password: "" },
@@ -33,7 +32,6 @@ class RegistrationForm extends React.Component {
         });
       })
       .catch((error) => {
-        console.log(error);
         if (error.response.data.statusCode === 400) {
           this.setState({ responseCode: 400 });
         }
