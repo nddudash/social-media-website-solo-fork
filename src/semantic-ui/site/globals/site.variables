@@ -1,7 +1,6 @@
 /*******************************
      User Global Variables
 *******************************/
-@pageBackground: #D8D8D8;
 @primaryColor: #002f4e;
 
 .ui.feed .event .content {

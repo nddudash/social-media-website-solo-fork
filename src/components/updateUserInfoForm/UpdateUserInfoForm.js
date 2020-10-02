@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Form,
-  Button,
-  Label,
-  TextArea,
-  Message,
-} from "semantic-ui-react";
+import { Form, Button, Label, TextArea, Message } from "semantic-ui-react";
 import UpdateUserInfoService from "../../services/UpdateUserInfoService";
 import "./UpdateUserInfoForm.css";
 
@@ -14,7 +8,11 @@ class UpdateUserInfoForm extends React.Component {
     super(props);
     this.state = {
       responseCode: null,
-      updateUserInfoObject: {},
+      updateUserInfoObject: {
+        password: "",
+        displayName: "",
+        about: "",
+      },
     };
 
     this.UpdateUserInfoService = new UpdateUserInfoService();
@@ -42,6 +40,13 @@ class UpdateUserInfoForm extends React.Component {
         this.setState({
           responseCode: result.data.statusCode,
         });
+        this.setState({
+          updateUserInfoObject: {
+            password: "",
+            displayName: "",
+            about: "",
+          },
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -50,16 +55,12 @@ class UpdateUserInfoForm extends React.Component {
 
   handleReset = (event) => {
     this.setState({
-      statusCode: null,
-      formData: {
-        firstName: "",
-        lastName: "",
-      },
+      responseCode: null,
     });
   };
 
   render() {
-    if (this.state.statusCode === 200) {
+    if (this.state.responseCode === 200) {
       return (
         <div className="UpdateUserInfoForm">
           <Form onSubmit={this.handleUpdateUserInfo}>
@@ -72,6 +73,9 @@ class UpdateUserInfoForm extends React.Component {
                 name="password"
                 required
                 onChange={this.handleChange}
+                value={this.state.updateUserInfoObject.password}
+                minLength="3"
+                maxLength="20"
               />
             </Form.Field>
             <Form.Field>
@@ -83,6 +87,7 @@ class UpdateUserInfoForm extends React.Component {
                 name="displayName"
                 required
                 onChange={this.handleChange}
+                value={this.state.updateUserInfoObject.displayName}
                 minLength="3"
                 maxLength="20"
               />
@@ -96,6 +101,7 @@ class UpdateUserInfoForm extends React.Component {
                 name="about"
                 required
                 onChange={this.handleChange}
+                value={this.state.updateUserInfoObject.about}
                 maxLength="255"
               />
             </Form.Field>
@@ -121,6 +127,7 @@ class UpdateUserInfoForm extends React.Component {
               type="password"
               name="password"
               onChange={this.handleChange}
+              required
             />
           </Form.Field>
           <Form.Field>
@@ -133,6 +140,7 @@ class UpdateUserInfoForm extends React.Component {
               onChange={this.handleChange}
               minLength="3"
               maxLength="20"
+              required
             />
           </Form.Field>
           <Form.Field>
@@ -144,6 +152,7 @@ class UpdateUserInfoForm extends React.Component {
               name="about"
               onChange={this.handleChange}
               maxLength="255"
+              required
             />
           </Form.Field>
           <Button positive type="submit">

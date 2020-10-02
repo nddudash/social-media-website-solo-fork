@@ -55,7 +55,7 @@ class ProfilePictureParent extends React.Component {
     )
       .then((result) => {
         this.setState({
-          imageData: uploadImage,
+          imageData: result.config.url,
         });
       })
       .catch((error) => {
