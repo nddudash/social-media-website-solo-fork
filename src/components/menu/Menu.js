@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Icon, Header } from "semantic-ui-react";
+import { Icon } from "semantic-ui-react";
 import "./Menu.css";
 import { withAsyncAction } from "../../redux/HOCs";
 import DataService from "../../services/DataService";

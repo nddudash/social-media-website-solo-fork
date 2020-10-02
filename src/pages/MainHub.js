@@ -6,10 +6,6 @@ import GetMessages from "../components/messages/GetMessages";
 
 
 class MainHub extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
     render() {
         return (
             <div className = "mainHub">

@@ -22,7 +22,6 @@ class ProfilePictureParent extends React.Component {
     this.userInfo = UserDataService.getDirectUser(
       this.props.usernameFromURL
     ).then((response) => {
-      console.log(response);
       this.setState({
         userAboutInfo: response.data.user.about,
         userUsername: response.data.user.username,

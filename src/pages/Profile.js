@@ -2,7 +2,6 @@ import React from "react";
 import UserMessagesDisplay from "../components/userMessagesDisplay/UserMessagesDisplay";
 import Menu from "../components/menu/Menu";
 import ProfilePictureParent from "../components/profilePictureParent/ProfilePictureParent";
-import UserDataService from "../services/UserDataService";
 import { userIsAuthenticated } from "../redux/HOCs";
 import DataService from "../services/DataService";
 import "./Profile.css";

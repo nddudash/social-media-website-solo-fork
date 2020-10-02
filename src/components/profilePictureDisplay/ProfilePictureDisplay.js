@@ -22,7 +22,6 @@ class ProfilePictureDisplay extends React.Component {
         });
       })
       .catch((error) => {
-        console.log(error);
         if (error.response.data.statusCode === 404) {
           this.setState({
             imageData: 404,

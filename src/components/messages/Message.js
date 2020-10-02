@@ -1,6 +1,5 @@
 import React from "react";
 import LikeButton from "../likeButton/LikeButton";
-import { displayName } from "react-spinkit";
 import { Link } from "react-router-dom";
 import DeleteUserMessages from "../deleteUserMessage/DeleteUserMessages";
 import {
@@ -11,8 +10,6 @@ import {
   FeedLike,
   FeedMeta,
   FeedSummary,
-  FeedUser,
-  Icon,
 } from "semantic-ui-react";
 // import UserServices from "../../services/UserDataService";
 

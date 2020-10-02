@@ -1,5 +1,5 @@
 import React from "react";
-import { Feed, Icon, Loader } from "semantic-ui-react";
+import { Feed, Loader } from "semantic-ui-react";
 import MessageService from "../../services/MessageService";
 import DataService from "../../services/DataService"
 import Message from "./Message";
@@ -14,7 +14,6 @@ class GetMessages extends React.Component {
   componentDidMount() {
     MessageService.obtainMessages().then((response) => {
       this.setState({ messages: response.data.messages });
-      console.log(response.data.messages);
     });
   }
 
