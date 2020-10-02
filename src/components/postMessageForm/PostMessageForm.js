@@ -39,6 +39,7 @@ class PostMessageForm extends React.Component {
             responseCode: result.data.statusCode,
           });
         }
+        window.location.reload();
       })
       .catch((error) => {
         console.log(error);

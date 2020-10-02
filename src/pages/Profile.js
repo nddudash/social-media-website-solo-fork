@@ -33,7 +33,9 @@ class Profile extends React.Component {
               />
             </div>
             <div className="ProfileRightColumn">
-              <UserMessagesDisplay />
+              <UserMessagesDisplay
+                usernameFromURL={this.props.match.params.username}
+              />
             </div>
           </div>
         </div>
@@ -53,7 +55,9 @@ class Profile extends React.Component {
               />
             </div>
             <div className="ProfileRightColumn">
-              <UserMessagesDisplay />
+              <UserMessagesDisplay
+                usernameFromURL={this.props.match.params.username}
+              />
             </div>
           </div>
         </div>

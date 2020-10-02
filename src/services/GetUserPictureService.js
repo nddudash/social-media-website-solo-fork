@@ -20,6 +20,18 @@ class GetUserPictureService {
       }
     );
   }
+
+  GetUserPictureTimestamped(username) {
+    let loginData = JSON.parse(localStorage.getItem("login"));
+    return this.client.get(
+      this.url + "/users/" + username + "/picture?t=" + Date.now(),
+      {
+        headers: {
+          Authorization: `Bearer ${loginData.result.token}`,
+        },
+      }
+    );
+  }
 }
 
 export default GetUserPictureService;

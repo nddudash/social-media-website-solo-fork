@@ -1,7 +1,7 @@
 import React from "react";
-import { Feed, Loader } from "semantic-ui-react";
+import { Feed, Loader, Header } from "semantic-ui-react";
 import MessageService from "../../services/MessageService";
-import DataService from "../../services/DataService"
+import DataService from "../../services/DataService";
 import Message from "./Message";
 
 class GetMessages extends React.Component {
@@ -21,15 +21,14 @@ class GetMessages extends React.Component {
     if (this.state.messages.length === 0) {
       return (
         <div className="messageList">
-          <h1>Message List</h1>
-          <Loader size="massive" active />
-          <h3>Loading...</h3>
+          <Loader size="massive" active>
+            <Header as= "h3">Loading...</Header>
+          </Loader>
         </div>
       );
     }
     return (
       <div className="messageList">
-        <h1>Message List</h1>
         <ul>
           <Feed>
             {this.state.messages.map((messageObject) => (

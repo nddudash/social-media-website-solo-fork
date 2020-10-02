@@ -1,50 +1,53 @@
-import React from "react"
-import { Feed, Loader } from "semantic-ui-react";
+import React from "react";
+import { Feed, Loader, Header } from "semantic-ui-react";
 import MessageService from "../../services/MessageService";
-import DataService from "../../services/DataService"
-import Message from "../messages/Message"
-import "./UserMessagesDisplay.css"
+import DataService from "../../services/DataService";
+import Message from "../messages/Message";
+import "./UserMessagesDisplay.css";
 
 class UserMessagesDisplay extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { messages: [] };
-        this.loggedInUser = new DataService().getUsername();
+  constructor(props) {
+    super(props);
+    this.state = { messages: [], usernameFromURL: this.props.usernameFromURL };
+    this.loggedInUser = new DataService().getUsername();
+  }
+
+  componentDidMount() {
+    MessageService.obtainUserMessages(this.props.usernameFromURL).then(
+      (response) => {
+        this.setState({ messages: response.data.messages });
       }
-    
-      componentDidMount() {
-        MessageService.obtainUserMessages(this.loggedInUser).then((response) => {
-          this.setState({ messages: response.data.messages });
-        });
-      }
-    
-      render() {
-        if (this.state.messages.length === 0) {
-          return (
-            <div className="messageList">
-              <h1>Message List</h1>
-              <Loader size="massive" active />
-              <h3>Loading...</h3>
-            </div>
-          );
-        }
-        return (
-          <div className="UserMessagesDisplay">
-            <h1>Message List</h1>
-            <ul>
-              <Feed>
-                {this.state.messages.map((messageObject) => (
-                  <Message
-                    key={messageObject.id}
-                    {...messageObject}
-                    loggedInUser={this.loggedInUser}
-                  />
-                ))}
-              </Feed>
-            </ul>
-          </div>
-        );
-      }
+    );
+  }
+
+  render() {
+    if (this.state.messages.length === 0) {
+      return (
+        <div className="messageList">
+          <Loader size="massive" active>
+            <Header as="h3">Loading...</Header>
+          </Loader>
+        </div>
+      );
+    }
+    return (
+      <div className="UserMessagesDisplay">
+        <ul>
+          <Feed>
+            {this.state.messages.map((messageObject) => (
+              <Message
+                key={messageObject.id}
+                {...messageObject}
+                loggedInUser={this.loggedInUser}
+                username={this.state.usernameFromURL}
+                getPostAvatar = {this.getPostAvatar}
+              />
+            ))}
+          </Feed>
+        </ul>
+      </div>
+    );
+  }
 }
 
-export default UserMessagesDisplay
+export default UserMessagesDisplay;

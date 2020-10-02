@@ -1,5 +1,4 @@
 import React from "react";
-import GetUserPictureService from "../../services/GetUserPictureService";
 import { Placeholder, Image } from "semantic-ui-react";
 import profilePlaceholder from "../../assets/images/Placeholder.png";
 import "./ProfilePictureDisplay.css";
@@ -8,27 +7,18 @@ class ProfilePictureDisplay extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      imageData: this.props.imageData,
+      imageData: null,
     };
-
-    this.GetUserPictureService = new GetUserPictureService();
   }
 
-  componentDidMount = (event) => {
-    this.GetUserPictureService.GetUserPicture(this.props.usernameFromURL)
-      .then((result) => {
-        this.setState({
-          imageData: result.config.url,
-        });
-      })
-      .catch((error) => {
-        if (error.response.data.statusCode === 404) {
-          this.setState({
-            imageData: 404,
-          });
-        }
+  //Thanks to ob1 and HoldOffHunger from https://stackoverflow.com/questions/37009328/re-render-react-component-when-prop-changes
+  componentDidUpdate(prevProps) {
+    if (prevProps.imageData !== this.props.imageData) {
+      this.setState({
+        imageData: this.props.imageData,
       });
-  };
+    }
+  }
 
   render() {
     if (this.state.imageData === 404) {
