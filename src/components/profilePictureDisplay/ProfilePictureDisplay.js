@@ -1,6 +1,6 @@
 import React from "react";
 import GetUserPictureService from "../../services/GetUserPictureService";
-import { Placeholder, Image,} from "semantic-ui-react";
+import { Placeholder, Image } from "semantic-ui-react";
 import profilePlaceholder from "../../assets/images/Placeholder.png";
 import "./ProfilePictureDisplay.css";
 
@@ -8,7 +8,7 @@ class ProfilePictureDisplay extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      imageData: null,
+      imageData: this.props.imageData,
     };
 
     this.GetUserPictureService = new GetUserPictureService();
@@ -34,8 +34,13 @@ class ProfilePictureDisplay extends React.Component {
   render() {
     if (this.state.imageData === 404) {
       return (
-        <div className="ProfilePictureDisplay">
-          <Image src={profilePlaceholder} style={{ height: 170, width: 170 }} alt="Profile Picture" />
+        <div width className="ProfilePictureDisplay">
+          <Image
+            className="profileImage"
+            src={profilePlaceholder}
+            alt="Profile Picture"
+            ui={false}
+          />
         </div>
       );
     }
@@ -43,15 +48,19 @@ class ProfilePictureDisplay extends React.Component {
     if (this.state.imageData) {
       return (
         <div className="ProfilePictureDisplay">
-          <Image src={this.state.imageData} style={{ height: 170, width: 170 }} alt="Profile Picture" />
+          <Image
+            className="profileImage"
+            src={this.state.imageData}
+            alt="Profile Picture"
+          />
         </div>
       );
     }
 
     return (
       <div className="ProfilePictureDisplay">
-        <Placeholder style={{ height: 170, width: 170 }}>
-          <Placeholder.Image />
+        <Placeholder>
+          <Placeholder.Image className="profileImage" />
         </Placeholder>
       </div>
     );

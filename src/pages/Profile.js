@@ -1,54 +1,63 @@
 import React from "react";
-import { Divider, Header } from "semantic-ui-react";
+import UserMessagesDisplay from "../components/userMessagesDisplay/UserMessagesDisplay";
 import Menu from "../components/menu/Menu";
-import ProfilePictureDisplay from "../components/profilePictureDisplay/ProfilePictureDisplay";
-import UploadProfilePicture from "../components/uploadProfilePicture/UploadProfilePicture";
-import UpdateUserInfoForm from "../components/updateUserInfoForm/UpdateUserInfoForm";
-import DeleteUser from "../components/deleteUser/DeleteUser";
+import ProfilePictureParent from "../components/profilePictureParent/ProfilePictureParent";
 import UserDataService from "../services/UserDataService";
 import { userIsAuthenticated } from "../redux/HOCs";
+import DataService from "../services/DataService";
+import "./Profile.css";
 
 class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: this.props.name,
+      userAboutInfo: null,
     };
 
-    this.UserDataService = UserDataService;
-    this.loginData = JSON.parse(localStorage.getItem("login"));
-    console.log(this.props.match);
-    console.log(
-      UserDataService.getDirectUser(
-        this.props.match.params.username
-      ).then((result) => console.log(result))
-    );
+    //Gets User Login
+    this.loggedInUser = new DataService().getUsername();
   }
 
   render() {
-    if (this.props.match.params.username === this.loginData.result.username) {
+    if (this.props.match.params.username === this.loggedInUser) {
       return (
         <div className="Profile">
-          <Menu isAuthenticated={this.props.isAuthenticated} />
-          <Header as="h2">Welcome, {this.loginData.result.username}</Header>
-          <ProfilePictureDisplay
-            usernameFromURL={this.props.match.params.username}
-          />
-          <Divider />
-          <UploadProfilePicture />
-          <UpdateUserInfoForm />
-          <h2>Profile</h2>
-          <DeleteUser />
+          <div className="Row1">
+            <Menu isAuthenticated={this.props.isAuthenticated} />
+          </div>
+          <div className="Row2">
+            <div className="ProfileLeftColumn">
+              <ProfilePictureParent
+                isAuthenticated={this.props.isAuthenticated}
+                usernameFromURL={this.props.match.params.username}
+                loggedInUser={this.loggedInUser}
+              />
+            </div>
+            <div className="ProfileRightColumn">
+              <UserMessagesDisplay />
+            </div>
+          </div>
         </div>
       );
     }
 
     return (
       <div className="Profile">
-        <Menu isAuthenticated={this.props.isAuthenticated} />
-        <ProfilePictureDisplay
-          usernameFromURL={this.props.match.params.username}
-        />
+        <div className="Profile">
+          <div className="Row1">
+            <Menu isAuthenticated={this.props.isAuthenticated} />
+          </div>
+          <div className="Row2">
+            <div className="ProfileLeftColumn">
+              <ProfilePictureParent
+                usernameFromURL={this.props.match.params.username}
+              />
+            </div>
+            <div className="ProfileRightColumn">
+              <UserMessagesDisplay />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
