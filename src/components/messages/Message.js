@@ -13,6 +13,7 @@ import {
   FeedMeta,
   FeedSummary,
 } from "semantic-ui-react";
+import "./GetMessages.css";
 
 class Message extends React.Component {
   constructor(props) {
@@ -62,7 +63,10 @@ class Message extends React.Component {
                   messageId={this.props.id}
                 />
               </FeedLike>
-              <DeleteUserMessages messageId={this.props.id} />
+              <DeleteUserMessages
+                messageId={this.props.id}
+                className="deleteButton"
+              />
             </FeedMeta>
           </FeedContent>
         </Feed.Event>

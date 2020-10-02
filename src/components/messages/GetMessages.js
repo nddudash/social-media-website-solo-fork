@@ -2,6 +2,7 @@ import React from "react";
 import { Feed, Loader, Header } from "semantic-ui-react";
 import MessageService from "../../services/MessageService";
 import DataService from "../../services/DataService";
+import "./GetMessages.css";
 import Message from "./Message";
 
 class GetMessages extends React.Component {
@@ -30,7 +31,7 @@ class GetMessages extends React.Component {
     return (
       <div className="messageList">
         <ul>
-          <Feed>
+          <Feed className="messageArea">
             {this.state.messages.map((messageObject) => (
               <Message
                 key={messageObject.id}
