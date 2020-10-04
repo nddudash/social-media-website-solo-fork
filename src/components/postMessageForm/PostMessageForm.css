@@ -1,0 +1,15 @@
+.PostMessageForm {
+  background-color: white;
+  width: 100%;
+  z-index: 1;
+  margin: 0 auto;
+}
+
+.PostMessageForm .postMessageFormForm .button {
+    margin: 15px;
+}
+
+.PostMessageForm .postMessageFormForm .field {
+  width: 100%;
+  margin: 0;
+}

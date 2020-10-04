@@ -2,7 +2,7 @@ import React from "react";
 import Spinner from "react-spinkit";
 import "./RegistrationForm.css";
 import dataService from "../../services/DataService";
-import { Form, Button, Label, Input, Message } from "semantic-ui-react";
+import { Form, Button, Label, Input, Message, Header } from "semantic-ui-react";
 
 class RegistrationForm extends React.Component {
   constructor(props) {
@@ -70,6 +70,7 @@ class RegistrationForm extends React.Component {
     if (this.state.responseCode === 400) {
       return (
         <div className="RegistrationForm">
+          <Header>Register</Header>
           <Form id="registration-form" onSubmit={this.handleRegistration} error>
             <Form.Field>
               <Label size="large" color="blue" htmlFor="username">
@@ -129,6 +130,7 @@ class RegistrationForm extends React.Component {
 
     return (
       <div className="RegistrationForm">
+        <Header>Register</Header>
         <Form id="registration-form" onSubmit={this.handleRegistration}>
           <Form.Field>
             <Label size="large" color="blue" htmlFor="username">

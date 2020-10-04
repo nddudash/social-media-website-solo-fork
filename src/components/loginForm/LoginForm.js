@@ -1,7 +1,7 @@
 import React from "react";
 import Spinner from "react-spinkit";
 import { withAsyncAction } from "../../redux/HOCs";
-import { Form, Button, Label, Input } from "semantic-ui-react";
+import { Form, Button, Label, Input, Header } from "semantic-ui-react";
 import "./LoginForm.css";
 
 class LoginForm extends React.Component {
@@ -26,6 +26,7 @@ class LoginForm extends React.Component {
     const { loading, error } = this.props;
     return (
       <div className="LoginForm">
+        <Header>Login</Header>
         <Form id="login-form" onSubmit={this.handleLogin}>
           <Form.Field>
             <Label size="large" color="blue" htmlFor="username">

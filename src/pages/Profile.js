@@ -1,6 +1,7 @@
 import React from "react";
 import UserMessagesDisplay from "../components/userMessagesDisplay/UserMessagesDisplay";
 import Menu from "../components/menu/Menu";
+import { Sticky } from "semantic-ui-react";
 import ProfilePictureParent from "../components/profilePictureParent/ProfilePictureParent";
 import { userIsAuthenticated } from "../redux/HOCs";
 import DataService from "../services/DataService";
@@ -44,21 +45,19 @@ class Profile extends React.Component {
 
     return (
       <div className="Profile">
-        <div className="Profile">
-          <div className="Row1">
-            <Menu isAuthenticated={this.props.isAuthenticated} />
+        <div className="Row1">
+          <Menu isAuthenticated={this.props.isAuthenticated} />
+        </div>
+        <div className="Row2">
+          <div className="ProfileLeftColumn">
+            <ProfilePictureParent
+              usernameFromURL={this.props.match.params.username}
+            />
           </div>
-          <div className="Row2">
-            <div className="ProfileLeftColumn">
-              <ProfilePictureParent
-                usernameFromURL={this.props.match.params.username}
-              />
-            </div>
-            <div className="ProfileRightColumn">
-              <UserMessagesDisplay
-                usernameFromURL={this.props.match.params.username}
-              />
-            </div>
+          <div className="ProfileRightColumn">
+            <UserMessagesDisplay
+              usernameFromURL={this.props.match.params.username}
+            />
           </div>
         </div>
       </div>

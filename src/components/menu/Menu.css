@@ -1,15 +1,24 @@
 .Menu {
-  background-color: lightskyblue;
+  background-color:#40a3ed;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 1em;
+  height: 50px;
   border-radius: 1em;
+}
+
+.Menu .menuHeader {
+  align-self:center;
+  margin: 0;
 }
 
 #menu-links {
   display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   padding-left: 1em;
+  height: 36px;
 }
 
 #menu-links a {
