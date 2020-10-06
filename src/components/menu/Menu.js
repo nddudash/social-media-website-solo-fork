@@ -22,13 +22,15 @@ class Menu extends React.Component {
   render() {
     return (
       <div className="Menu">
-        <Header as = "h1">Kwitter</Header>
+        <Header className = "menuHeader" as="h1">
+         Kwitter
+        </Header>
         {this.props.isAuthenticated && (
           <div id="menu-links">
             <Link to="/mainHub">
               <Icon name="home" size="large" /> Main
             </Link>
-            <Link to={`/profile/${this.loggedInUser}`}> 
+            <Link to={`/profile/${this.loggedInUser}`}>
               <Icon name="user" size="large" /> Profile
             </Link>
             <Link to="/" onClick={this.handleLogout}>

@@ -2,54 +2,59 @@
      User Global Variables
 *******************************/
 @primaryColor: #002f4e;
+@blue: #40a3ed;
 
-.ui.feed .event .content {
-    padding: 10px 10px 10px 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border: 1px solid black;
-    border-radius: 5px;
-    box-shadow: 3px 3px lightgray;
+@loginPageForms: {
+     width: 310px;
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     padding: 20px 15px 20px 15px;
 }
 
-.ui.feed .event .content .ui.negative.button {
-     margin-left: -9px;
-     margin-top: 10px;
-     font-size: 10px;
-     width: 110px;
+@boxBlackBorder: {
+     border: 1px solid black;
+     border-radius: 5px;
+     box-shadow: 3px 3px lightgray;
+}
+
+
+.ui.feed .event { 
+     & .content {
+          padding: 10px 10px 10px 10px;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          @boxBlackBorder()
+     }
+     &:last-child .content {
+         padding-bottom: 10px; 
+     }
+     & .label {
+          margin-left: -35px;
+     }
+     & .ui.negative.button {
+          margin-left: -9px;
+          margin-top: 10px;
+          font-size: 10px;
+          width: 110px;
+    }
 }
 
 .ProfilePictureParent .card {
   margin-bottom: 10px;
-  border: 1px solid black;
-  border-radius: 5px;
-  box-shadow: 3px 3px lightgray;
+  @boxBlackBorder();
 }
 
-.ui.feed .event:last-child .content {
-     padding-bottom: 10px;
+.PostMessageForm {
+     @boxBlackBorder();
 }
 
 .LoginForm {
-     width: 310px;
-     display: block;
-     margin-left: auto;
-     margin-right: auto;
-
-     padding: 20px 15px 20px 15px;
-     border: 1px solid black;
-     border-radius: 5px;
-     box-shadow: 3px 3px lightgray;
+     @loginPageForms();
+     @boxBlackBorder();
 }
 
 .RegistrationForm {
-     width: 310px;
-     display: block;
-     margin-left: auto;
-     margin-right: auto;
-
-     padding: 20px 15px 20px 15px;
-     border: 1px solid black;
-     border-radius: 5px;
-     box-shadow: 3px 3px lightgray;
+     @loginPageForms();
+     @boxBlackBorder();
 }

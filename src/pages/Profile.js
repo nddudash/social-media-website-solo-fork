@@ -1,12 +1,15 @@
-import React from "react";
+import React, { createRef } from "react";
 import UserMessagesDisplay from "../components/userMessagesDisplay/UserMessagesDisplay";
 import Menu from "../components/menu/Menu";
 import ProfilePictureParent from "../components/profilePictureParent/ProfilePictureParent";
 import { userIsAuthenticated } from "../redux/HOCs";
 import DataService from "../services/DataService";
+import { Segment, Sticky } from "semantic-ui-react";
 import "./Profile.css";
 
 class Profile extends React.Component {
+  // creates page's context reference so the Sticky Semantic works
+  contextRef = createRef();
   constructor(props) {
     super(props);
     this.state = {
@@ -21,21 +24,27 @@ class Profile extends React.Component {
     if (this.props.match.params.username === this.loggedInUser) {
       return (
         <div className="Profile">
-          <div className="Row1">
-            <Menu isAuthenticated={this.props.isAuthenticated} />
+          <div className="Row1" ref={this.contextRef}>
+            <Sticky context={this.contextRef} offset={7}>
+              <Menu isAuthenticated={this.props.isAuthenticated} />
+            </Sticky>
           </div>
           <div className="Row2">
-            <div className="ProfileLeftColumn">
-              <ProfilePictureParent
-                isAuthenticated={this.props.isAuthenticated}
-                usernameFromURL={this.props.match.params.username}
-                loggedInUser={this.loggedInUser}
-              />
+            <div className="ProfileLeftColumn" ref={this.contextRef}>
+              <Sticky context={this.contextRef} offset={70}>
+                <ProfilePictureParent
+                  isAuthenticated={this.props.isAuthenticated}
+                  usernameFromURL={this.props.match.params.username}
+                  loggedInUser={this.loggedInUser}
+                />
+              </Sticky>
             </div>
             <div className="ProfileRightColumn">
-              <UserMessagesDisplay
-                usernameFromURL={this.props.match.params.username}
-              />
+              <Segment>
+                <UserMessagesDisplay
+                  usernameFromURL={this.props.match.params.username}
+                />
+              </Segment>
             </div>
           </div>
         </div>
@@ -44,21 +53,25 @@ class Profile extends React.Component {
 
     return (
       <div className="Profile">
-        <div className="Profile">
-          <div className="Row1">
+        <div className="Row1" ref={this.contextRef}>
+          <Sticky context={this.contextRef} offset={7}>
             <Menu isAuthenticated={this.props.isAuthenticated} />
-          </div>
-          <div className="Row2">
-            <div className="ProfileLeftColumn">
+          </Sticky>
+        </div>
+        <div className="Row2">
+          <div className="ProfileLeftColumn" ref={this.contextRef}>
+            <Sticky context={this.contextRef} offset={70}>
               <ProfilePictureParent
                 usernameFromURL={this.props.match.params.username}
               />
-            </div>
-            <div className="ProfileRightColumn">
+            </Sticky>
+          </div>
+          <div className="ProfileRightColumn">
+            <Segment>
               <UserMessagesDisplay
                 usernameFromURL={this.props.match.params.username}
               />
-            </div>
+            </Segment>
           </div>
         </div>
       </div>
