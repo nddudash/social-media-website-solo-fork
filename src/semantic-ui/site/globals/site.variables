@@ -29,3 +29,27 @@
 .ui.feed .event:last-child .content {
      padding-bottom: 10px;
 }
+
+.LoginForm {
+     width: 310px;
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+
+     padding: 20px 15px 20px 15px;
+     border: 1px solid black;
+     border-radius: 5px;
+     box-shadow: 3px 3px lightgray;
+}
+
+.RegistrationForm {
+     width: 310px;
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+
+     padding: 20px 15px 20px 15px;
+     border: 1px solid black;
+     border-radius: 5px;
+     box-shadow: 3px 3px lightgray;
+}
