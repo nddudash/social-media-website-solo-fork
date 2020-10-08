@@ -65,12 +65,13 @@ class UpdateUserInfoForm extends React.Component {
         <div className="UpdateUserInfoForm">
           <Form onSubmit={this.handleUpdateUserInfo}>
             <Form.Field>
-              <Label size="large" color="blue">
+              <Label size="small" color="blue">
                 Create a New Password
               </Label>
               <Form.Input
                 type="password"
                 name="password"
+                size="small"
                 required
                 onChange={this.handleChange}
                 value={this.state.updateUserInfoObject.password}
@@ -79,12 +80,13 @@ class UpdateUserInfoForm extends React.Component {
               />
             </Form.Field>
             <Form.Field>
-              <Label size="large" color="blue">
+              <Label size="small" color="blue">
                 Chose a New Display Name!
               </Label>
               <Form.Input
                 type="text"
                 name="displayName"
+                size="small"
                 required
                 onChange={this.handleChange}
                 value={this.state.updateUserInfoObject.displayName}
@@ -93,12 +95,13 @@ class UpdateUserInfoForm extends React.Component {
               />
             </Form.Field>
             <Form.Field>
-              <Label size="large" color="blue">
+              <Label size="small" color="blue">
                 Update Your "About" Information!
               </Label>
               <Form.TextArea
                 type="text"
                 name="about"
+                size="small"
                 required
                 onChange={this.handleChange}
                 value={this.state.updateUserInfoObject.about}
@@ -120,23 +123,25 @@ class UpdateUserInfoForm extends React.Component {
       <div className="UpdateUserInfoForm">
         <Form onSubmit={this.handleUpdateUserInfo}>
           <Form.Field>
-            <Label size="large" color="blue">
+            <Label size="small" color="blue">
               Create a New Password
             </Label>
             <Form.Input
               type="password"
               name="password"
+              size="small"
               onChange={this.handleChange}
               required
             />
           </Form.Field>
           <Form.Field>
-            <Label size="large" color="blue">
+            <Label size="small" color="blue">
               Chose a New Display Name!
             </Label>
             <Form.Input
               type="text"
               name="displayName"
+              size="small"
               onChange={this.handleChange}
               minLength="3"
               maxLength="20"
@@ -144,12 +149,13 @@ class UpdateUserInfoForm extends React.Component {
             />
           </Form.Field>
           <Form.Field>
-            <Label size="large" color="blue">
+            <Label size="small" color="blue">
               Update Your "About" Information!
             </Label>
             <TextArea
               type="text"
               name="about"
+              size="small"
               onChange={this.handleChange}
               maxLength="255"
               required
