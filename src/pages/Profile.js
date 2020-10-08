@@ -31,13 +31,11 @@ class Profile extends React.Component {
           </div>
           <div className="Row2">
             <div className="ProfileLeftColumn">
-              <Sticky context={this.contextRef} offset={30}>
-                <ProfilePictureParent
-                  isAuthenticated={this.props.isAuthenticated}
-                  usernameFromURL={this.props.match.params.username}
-                  loggedInUser={this.loggedInUser}
-                />
-              </Sticky>
+              <ProfilePictureParent
+                isAuthenticated={this.props.isAuthenticated}
+                usernameFromURL={this.props.match.params.username}
+                loggedInUser={this.loggedInUser}
+              />
             </div>
             <div className="ProfileRightColumn">
               <Segment>
@@ -60,11 +58,9 @@ class Profile extends React.Component {
         </div>
         <div className="Row2">
           <div className="ProfileLeftColumn">
-            <Sticky context={this.contextRef} offset={65}>
-              <ProfilePictureParent
-                usernameFromURL={this.props.match.params.username}
-              />
-            </Sticky>
+            <ProfilePictureParent
+              usernameFromURL={this.props.match.params.username}
+            />
           </div>
           <div className="ProfileRightColumn">
             <Segment>
