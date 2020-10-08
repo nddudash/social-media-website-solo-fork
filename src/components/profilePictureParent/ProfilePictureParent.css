@@ -1,9 +1,11 @@
 .ProfilePictureParent {
   padding: 0px;
+  height: 850px;
+  margin-top: -5px;
 }
 
 .ProfilePictureParent .card {
-  width: 300px;
+  width: 275px;
 }
 
 .ProfilePictureParent .card .content {

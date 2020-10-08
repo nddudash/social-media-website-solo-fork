@@ -53,7 +53,7 @@ class UploadProfilePicture extends React.Component {
             success
           >
             <Form.Field>
-              <Label size="large" color="blue">
+              <Label size="small" color="blue">
                 Upload A New Profile Picture
               </Label>
               <Message
@@ -78,7 +78,7 @@ class UploadProfilePicture extends React.Component {
             error
           >
             <Form.Field>
-              <Label size="large" color="blue">
+              <Label size="small"color="blue">
                 Upload A New Profile Picture
               </Label>
               <Message
@@ -103,7 +103,7 @@ class UploadProfilePicture extends React.Component {
             error
           >
             <Form.Field>
-              <Label size="large" color="blue">
+              <Label size="small" color="blue">
                 Upload A New Profile Picture
               </Label>
               <Message
@@ -123,7 +123,7 @@ class UploadProfilePicture extends React.Component {
       <div className="UploadProfilePicture">
         <Form encType="multipart/form-data" onSubmit={this.handleUpload}>
           <Form.Field>
-            <Label size="large" color="blue">
+            <Label size="small" color="blue">
               Upload A New Profile Picture
             </Label>
             <Input
@@ -132,6 +132,7 @@ class UploadProfilePicture extends React.Component {
               name="uploadPicture"
               accept="image/jpeg, image/gif, image/png"
               capture="user"
+              size="small"
               onChange={this.handleChange}
               required
               fluid

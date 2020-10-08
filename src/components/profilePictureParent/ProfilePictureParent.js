@@ -87,7 +87,6 @@ class ProfilePictureParent extends React.Component {
               </Card.Description>
             </Card.Content>
             <Card.Content className="ProfileCardUserControls">
-              <Card.Header>User Controls</Card.Header>
               <UploadProfilePicture updateImage={this.updateImage} />
               <UpdateUserInfoForm />
               <DeleteUser />
