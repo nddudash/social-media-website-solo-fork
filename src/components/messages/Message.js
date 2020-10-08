@@ -1,6 +1,6 @@
 import React from "react";
 import LikeButton from "../likeButton/LikeButton";
-import profilePlaceholder from "../../assets/images/Placeholder.png"
+import profilePlaceholder from "../../assets/images/Placeholder.png";
 import { Link } from "react-router-dom";
 import DeleteUserMessages from "../deleteUserMessage/DeleteUserMessages";
 import GetUserPictureService from "../../services/GetUserPictureService";
@@ -33,13 +33,50 @@ class Message extends React.Component {
       .catch((error) => {
         if (error.response.data.statusCode === 404) {
           this.setState({
-           postAvatar: 404,
+            postAvatar: 404,
           });
         }
       });
   }
 
   render() {
+    if (
+      this.props.loggedInUser === this.props.username &&
+      this.state.postAvatar === 404
+    ) {
+      return (
+        <Feed.Event>
+          <Feed.Label>
+            <img src={profilePlaceholder} alt="Post Avatar" />
+          </Feed.Label>
+          <FeedContent>
+            <FeedSummary>
+              <Link to={`/profile/${this.props.username}`}>
+                {this.props.username}
+              </Link>
+              <FeedDate>
+                at {new Date(this.props.createdAt).toDateString()}
+              </FeedDate>
+            </FeedSummary>
+            <FeedExtra text>{this.props.text}</FeedExtra>
+            <FeedMeta>
+              <FeedLike>
+                <LikeButton
+                  className="likeButton"
+                  likesArray={this.props.likes}
+                  messageId={this.props.id}
+                />
+              </FeedLike>
+              <DeleteUserMessages
+                messageId={this.props.id}
+                className="deleteButton"
+              />
+            </FeedMeta>
+          </FeedContent>
+        </Feed.Event>
+      );
+    }
+
     if (this.props.loggedInUser === this.props.username) {
       return (
         <Feed.Event>
@@ -108,7 +145,7 @@ class Message extends React.Component {
       return (
         <Feed.Event>
           <Feed.Label>
-            <Placeholder.Image/>
+            <Placeholder.Image />
           </Feed.Label>
           <FeedContent>
             <FeedSummary>
