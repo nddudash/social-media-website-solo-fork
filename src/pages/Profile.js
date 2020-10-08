@@ -25,7 +25,7 @@ class Profile extends React.Component {
       return (
         <div className="Profile" ref={this.contextRef}>
           <div className="Row1">
-            <Sticky context={this.contextRef} offset={7}>
+            <Sticky context={this.contextRef} offset={8}>
               <Menu isAuthenticated={this.props.isAuthenticated} />
             </Sticky>
           </div>
