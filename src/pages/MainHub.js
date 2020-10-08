@@ -3,10 +3,7 @@ import Menu from "../components/menu/Menu";
 import { userIsAuthenticated } from "../redux/HOCs";
 import PostMessageForm from "../components/postMessageForm/PostMessageForm";
 import GetMessages from "../components/messages/GetMessages";
-import {
-  Segment,
-  Sticky,
-} from "semantic-ui-react";
+import { Segment, Sticky } from "semantic-ui-react";
 import "./MainHub.css";
 
 class MainHub extends React.Component {
