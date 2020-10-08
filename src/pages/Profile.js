@@ -23,15 +23,15 @@ class Profile extends React.Component {
   render() {
     if (this.props.match.params.username === this.loggedInUser) {
       return (
-        <div className="Profile">
-          <div className="Row1" ref={this.contextRef}>
+        <div className="Profile" ref={this.contextRef}>
+          <div className="Row1">
             <Sticky context={this.contextRef} offset={7}>
               <Menu isAuthenticated={this.props.isAuthenticated} />
             </Sticky>
           </div>
           <div className="Row2">
-            <div className="ProfileLeftColumn" ref={this.contextRef}>
-              <Sticky context={this.contextRef} offset={70}>
+            <div className="ProfileLeftColumn">
+              <Sticky context={this.contextRef} offset={30}>
                 <ProfilePictureParent
                   isAuthenticated={this.props.isAuthenticated}
                   usernameFromURL={this.props.match.params.username}
@@ -52,15 +52,15 @@ class Profile extends React.Component {
     }
 
     return (
-      <div className="Profile">
-        <div className="Row1" ref={this.contextRef}>
+      <div className="Profile" ref={this.contextRef}>
+        <div className="Row1">
           <Sticky context={this.contextRef} offset={7}>
             <Menu isAuthenticated={this.props.isAuthenticated} />
           </Sticky>
         </div>
         <div className="Row2">
-          <div className="ProfileLeftColumn" ref={this.contextRef}>
-            <Sticky context={this.contextRef} offset={70}>
+          <div className="ProfileLeftColumn">
+            <Sticky context={this.contextRef} offset={65}>
               <ProfilePictureParent
                 usernameFromURL={this.props.match.params.username}
               />
