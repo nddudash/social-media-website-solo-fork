@@ -6,6 +6,10 @@
     flex-basis: 80%
 }
 
+.Profile .Menu {
+    margin-top: 1px;
+}
+
 .Profile .Row2 {
     margin-top: 25px;
     display: flex;
@@ -23,4 +27,5 @@
 .Profile .ProfileRightColumn {
     flex-grow: 2;
     flex-basis: 66%;
+    margin-right: 15%;
 }
