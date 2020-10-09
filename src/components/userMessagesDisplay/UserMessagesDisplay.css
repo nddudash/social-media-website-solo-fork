@@ -2,3 +2,7 @@
     height: 80%;
     width: 500px;
 }
+
+.UserMessagesDisplay .ui .feed .event {
+    width: 450px;
+}
